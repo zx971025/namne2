@@ -1,0 +1,25 @@
+class buhui(QMainWindow):
+    def __init__(self):
+        super(buhui,self).__init__()
+        self.qtgui()
+    def qtgui(self):
+        self.resize(500,600)
+        self.setWindowTitle('pyqt5')
+        self.button=QPushButton('弹出一个对话框',self)
+        self.button.resize(200,250)
+        self.button.move(100,100)
+        self.button.clicked.connect(self.Qtdiogo)
+    def Qtdiogo(self):
+        dialog=QDialog()
+        button=QPushButton('确定',dialog)
+        button.clicked.connect(dialog.close)
+        button.move(100,200)
+        dialog.setWindowTitle('你好哎')
+        dialog.setWindowModality(Qt.ApplicationModal)
+        dialog.exec()
+if __name__ == '__main__':
+    app=QApplication(sys.argv)
+    app.setWindowIcon(QIcon('1.ico'))
+    main=buhui()
+    main.show()
+    sys.exit(app.exec_())
